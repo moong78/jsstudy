@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Object</h1>
+
+    <script>
+    const person = {};
+    // property
+    person.name ="일분이";
+    person.age = 10;
+    // property 중에 값이 함수인 경우는 method
+    person.introduce = function() {
+        console.log("안녕하세요? 저는 영분이이고 나이는 9살이예요.")
+    }
+    person.introduce();
+
+    const person2 = {
+        nickname: "일분이",
+        age: 10, 
+        introduce: function(){
+            console.log("안녕하세요? 저는" + this.nickname + "이고 나이는" + this.age + "살이예요.")
+        }
+    }
+    const person3 = {
+        nickname: "이분이",
+        age: 12, 
+        introduce: function(){
+            console.log("안녕하세요? 저는" + this.nickname + "이고 나이는" + this.age + "살이예요.")
+        }
+    }
+    // 메서드를 실행한 객체 주체가 this를 가리킴
+    person2.introduce();
+    person3.introduce();
+
+    // 생성자 (constructor)
+    function Person(nickname, age) {
+         this.nickname = nickname;
+         this.age = age;
+         this.introduce = function(){
+            console.log("안녕하세요? 저는" + this.nickname + "이고 나이는" + this.age + "살이예요.")
+         }
+    }
+    // 생성사 함수 호출시 new를 붙여줘야 제대로 인식됨
+    // instance 생성자 함수를 통해 만들어진 객체를 인스턴스라 함
+    const person01 = new Person("01분이", 12);
+    const person02 = new Person("02분이", 10);
+
+    person01.introduce();
+    person02.introduce();
+    </script>
+</body>
+</html>
